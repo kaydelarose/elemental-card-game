@@ -1,6 +1,6 @@
 ## About
 
-This project was developed as part of my coursework at the Niantic Voyager Bootcamp. It represents my learning and application of Java programming, object-oriented design, and game development principles.
+This project was developed as part of my coursework at the Niantic Voyager Bootcamp. It represents my learning and application of Java programming, object-oriented design, game development principles, and unit testing practices.
 
 # Elemental Card Game
 
