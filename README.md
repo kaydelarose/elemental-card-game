@@ -1,35 +1,38 @@
-## About
-
-This project was developed as part of my coursework at the Niantic Voyager Bootcamp. It represents my learning and application of Java programming, object-oriented design, game development principles, and unit testing practices.
-
 # Elemental Card Game
 
-Card Elemental Battle is a strategic card game where players utilize elemental-themed cards to battle against each other. Each player is assigned an element, which gives them strengths and weaknesses against other elements. Players must strategically choose cards from their hand to attack or defend against opponents, with the goal of being the last player standing. The game features dynamic gameplay with varying card effects, including damage, healing, and paralysis.
+**Card Elemental Battle** is a strategic card game built using **Java** and **Object-Oriented Programming (OOP)** principles. Players utilize elemental-themed cards to battle against each other, with each player assigned an element that defines their strengths and weaknesses. The game runs on the terminal/console and requires players to strategically choose cards to attack or defend, with the goal of being the last player standing. The game features dynamic gameplay with varying card effects, including damage, healing, and paralysis.
+
 ## Features
 
-- **Elemental System:** Each player is assigned an element (Fire, Water, Earth, Air, or Lightning), which provides strengths and weaknesses against other elements.
-- **Card Types:** The game includes cards with different effects, such as Damage, Healing, and Paralysis.
-- **Strategic Gameplay:** Players must choose their cards wisely based on their own element and the element of their target.
-- **Dynamic Turns:** Players can see their cards and evaluate their strength against potential targets before making a move.
+- **Elemental System**: Each player is assigned an element (Fire, Water, Earth, Air, or Lightning), which provides strengths and weaknesses against other elements.
+- **Card Types**: The game includes cards with different effects, such as Damage, Healing, and Paralysis.
+- **Strategic Gameplay**: Players must choose their cards wisely based on their own element and the element of their target.
+- **Dynamic Turns**: Players can view their available cards and evaluate their effectiveness before making a move.
+- **User Interface**: The game runs entirely on the terminal/console, with a simple, interactive interface.
 
-## Getting Started
+# How to Run the Application
 
-To run the game, you need:
+Make sure you have the following installed:
 
-- **Java JDK 8 or later**: The game is built using Java, so ensure you have the JDK installed on your machine.
-## How to Play
+- **Java 11 or higher**
+- **Maven**
+- **IDE** (e.g., IntelliJ IDEA, Eclipse)
 
-1. **Start the Game**: Upon running the game, each player is randomly assigned an element (Fire, Water, Earth, Air, or Lightning).
+### Steps:
 
-2. **View Your Hand**: Players can view their hand of cards, each with an associated element and effect.
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-username/elemental-card-game.git
+2. **Navigate to the project directory**:
+   ```bash
+   cd elemental-card-game
+3. **Build the project**:
+    ```bash
+   mvn clean install
+4. **Run the application**:
+   ```bash
+   mvn spring-boot:run
 
-3. **Choose a Card**: Select a card from your hand to play. The game will indicate which cards are strong or weak against the chosen target.
+## License
 
-4. **Choose a Target**: After selecting a card, choose a target player. The game will apply the card’s effect (damage, healing, or paralysis) to the target.
-
-5. **End Game**: The game continues in turns until only one player remains, who is declared the winner.
-
-## Acknowledgments
-
-- This project was created while I was a student at the Niantic Voyager Bootcamp.
-- Inspired by classic card games and elemental-themed strategies.
+[MIT](https://choosealicense.com/licenses/mit/)
