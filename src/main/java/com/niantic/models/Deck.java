@@ -8,7 +8,7 @@ public class Deck {
     private LinkedHashMap<String, String[]> elementCardMap;
 
     public Deck() {
-        // initialize the deck
+
         cards = new ArrayList<>();
         initializeCardEffectMap();
 
@@ -20,8 +20,6 @@ public class Deck {
         elementCardMap.put("Air", new String[]{"Gale Force", "Cyclone", "Whirlwind", "Air Blast", "Breeze of Life"});
         elementCardMap.put("Lightning", new String[]{"Thunderbolt", "Electroshock", "Lightning Strike", "Static Charge", "Paralyze"});
 
-        // populate the deck with cards
-        // making copies of each card 30x (solution for now...)
         elementCardMap.forEach((element, cardNames) -> {
             for (String cardName : cardNames) {
                 String effectType = cardEffectMap.getOrDefault(cardName, "Damage");
@@ -34,16 +32,15 @@ public class Deck {
     }
 
     private void initializeCardEffectMap() {
-        // map card names to their effect types
+        
         cardEffectMap = new HashMap<>();
         cardEffectMap.put("Healing Rain", "Healing");
         cardEffectMap.put("Paralyze", "Skip another player's turn");
 
-        // all other cards default to "damage" and are handled by getOrDefault in the Deck constructor
     }
 
     private int generateCardValue(String element) {
-        // generate different ranges of values based on the element
+
         switch (element.toLowerCase()) {
             case "fire":
                 return randomValue(40, 60);
