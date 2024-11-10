@@ -7,7 +7,7 @@ public final class ColorCodes
     public static final String RED = "\u001B[31m";
     public static final String GREEN = "\u001B[32m";
     public static final String YELLOW = "\u001B[33m";
-    public static final String BLUE = "\u001B[34m"; // docs say it's blue
+    public static final String BLUE = "\u001B[34m";
     public static final String PURPLE = "\u001B[35m";
     public static final String CYAN = "\u001B[36m";
     public static final String GRAY = "\u001B[37m";
@@ -17,7 +17,7 @@ public final class ColorCodes
     public static final String RED_BACKGROUND = "\u001B[41m";
     public static final String GREEN_BACKGROUND = "\u001B[42m";
     public static final String YELLOW_BACKGROUND = "\u001B[43m";
-    public static final String ORANGE_BACKGROUND = "\u001B[44m"; // docs say it's blue
+    public static final String ORANGE_BACKGROUND = "\u001B[44m";
     public static final String PURPLE_BACKGROUND = "\u001B[45m";
     public static final String CYAN_BACKGROUND = "\u001B[46m";
     public static final String GRAY_BACKGROUND = "\u001B[47m";
@@ -43,10 +43,9 @@ public final class ColorCodes
             case "Lightning":
                 return YELLOW;
             default:
-                return RESET; // Default to no color if the element is unknown
+                return RESET;
         }
     }
-
 
     private ColorCodes(){}
     

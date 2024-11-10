@@ -57,31 +57,29 @@ public class Player {
         int cardValue = card.getCardValue();
         int adjustedValue = cardValue;
 
-
-        // checking for elemental strengths and weaknesses
         if (effectType.equals("Damage")) {
             if (Element.isStrongAgainst(this.getPlayerElement(), target.getPlayerElement())) {
-                adjustedValue = (int) (cardValue * 1.5); // increase value if strong against
+                adjustedValue = (int) (cardValue * 1.5);
                 System.out.println(this.getPlayerName() + "'s " + this.getPlayerElement() + " is strong against " + target.getPlayerElement() + "!");
             } else if (Element.isWeakAgainst(this.getPlayerElement(), target.getPlayerElement())) {
-                adjustedValue = (int) (cardValue * 0.5); // decrease value if weak against
+                adjustedValue = (int) (cardValue * 0.5);
                 System.out.println(this.getPlayerName() + "'s " + this.getPlayerElement() + " is weak against " + target.getPlayerElement() + "!");
             }
         }
 
         switch (effectType) {
             case "Damage":
-                target.adjustHP(-adjustedValue);  // decrease target's HP by card value
+                target.adjustHP(-adjustedValue);
                 System.out.println(target.getPlayerName() + " takes " + adjustedValue + " damage.");
                 break;
 
             case "Healing":
-                target.adjustHP(card.getCardValue());  // increase target's HP by card value
+                target.adjustHP(card.getCardValue());
                 System.out.println(target.getPlayerName() + " heals " + card.getCardValue() + " HP.");
                 break;
 
             case "Paralyze":
-                target.setParalyzed(true);  // paralyze the target, making them skip their next turn
+                target.setParalyzed(true);
                 System.out.println(target.getPlayerName() + " is paralyzed and will skip their next turn.");
                 break;
 

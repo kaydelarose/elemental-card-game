@@ -33,7 +33,6 @@ public class Card {
         return effectType;
     }
 
-    // for testing and debugging
     @Override
     public String toString() {
         return "Card{" +

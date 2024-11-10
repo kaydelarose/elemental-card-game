@@ -1,13 +1,9 @@
 package com.niantic.application;
 
-import com.niantic.models.Card;
-import com.niantic.models.Deck;
-import com.niantic.models.Element;
-import com.niantic.models.Player;
+import com.niantic.models.*;
 import com.niantic.ui.ColorCodes;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class CardGameApplication {
     Deck deck = new Deck();
@@ -18,9 +14,9 @@ public class CardGameApplication {
     public void run() {
         addPlayers();
         dealCards();
-        displayAllPlayerDetails(); // display player details (i.e., assigned element, strong against, weak against)
+        displayAllPlayerDetails();
         while (!isGameOver()) {
-            for (Player player : new ArrayList<>(activePlayers)) { // iterate over active players
+            for (Player player : new ArrayList<>(activePlayers)) {
                 if (player.getHP() > 0) {
                     takeTurn(player);
                     if (isGameOver()) break;
@@ -33,9 +29,8 @@ public class CardGameApplication {
     private void dealCards() {
         deck.shuffle();
 
-        // each player gets 5 cards
         for (int i = 0; i < 5; i++) {
-            for (Player player : activePlayers) { // deal cards to active players
+            for (Player player : activePlayers) {
                 Card card = deck.takeCard();
                 player.dealTo(card);
             }
@@ -49,7 +44,6 @@ public class CardGameApplication {
         players.add(new Player("Gregor"));
         players.add(new Player("Robin"));
 
-        // add all players to the activePlayers list
         activePlayers.addAll(players);
 
     }
@@ -60,11 +54,9 @@ public class CardGameApplication {
             String element = player.getPlayerElement();
             String color = ColorCodes.getElementColor(element);
 
-            // get the elements this one is strong and weak against
             String strongAgainst = Element.getStrongAgainst(element);
             String weakAgainst = Element.getWeakAgainst(element);
 
-            // displaying player details
             System.out.println(color + player.getPlayerName() + ColorCodes.RESET);
             System.out.println("  Element: " + color + element + ColorCodes.RESET);
             System.out.println("  Strong Against: " + ColorCodes.getElementColor(strongAgainst) + strongAgainst + ColorCodes.RESET);
@@ -74,15 +66,12 @@ public class CardGameApplication {
         }
     }
 
-
-
     private void takeTurn(Player player) {
         String playerColor = ColorCodes.getElementColor(player.getPlayerElement());
         System.out.println(playerColor + player.getPlayerName() + "'s turn:" + ColorCodes.RESET);
         System.out.println("HP: " + player.getHP());
         System.out.println("Cards:");
 
-        // display cards in player's hand
         ArrayList<Card> cards = player.getHand().getCards();
         for (int i = 0; i < cards.size(); i++) {
             Card card = cards.get(i);
@@ -104,14 +93,12 @@ public class CardGameApplication {
         int targetIndex = scanner.nextInt() - 1;
         Player targetPlayer = activePlayers.get(targetIndex);
 
-        // apply card effect and show the adjusted HP
         player.playCard(selectedCard, targetPlayer);
         int adjustedHP = targetPlayer.getHP();
 
         System.out.println(player.getPlayerName() + " used " + selectedCard.getCardName() + " on " + targetPlayer.getPlayerName() + "!");
         System.out.println(targetPlayer.getPlayerName() + " now has " + adjustedHP + " HP.");
 
-        // remove player if hp is 0 or below
         if (adjustedHP <= 0) {
             System.out.println(ColorCodes.RED + targetPlayer.getPlayerName() + " has been defeated and is removed from the game." + ColorCodes.RESET);
             activePlayers.remove(targetPlayer);

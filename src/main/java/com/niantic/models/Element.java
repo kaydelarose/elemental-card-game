@@ -1,8 +1,6 @@
 package com.niantic.models;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public class Element {
 
@@ -13,7 +11,6 @@ public class Element {
     public static final String lightning = "Lightning";
 
     private static final Random random = new Random();
-
 
     private static final String[] elements = {fire, water, earth, air, lightning};
 
@@ -54,6 +51,5 @@ public class Element {
     public static boolean isWeakAgainst(String element, String other) {
         return weakAgainst.get(element).equals(other);
     }
-
 
 }
