@@ -32,7 +32,3 @@ Make sure you have the following installed:
 4. **Run the application**:
    ```bash
    mvn spring-boot:run
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
